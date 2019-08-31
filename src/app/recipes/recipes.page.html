@@ -1,0 +1,29 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-title>Recipes</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="onUpload()">
+        <ion-icon name="cloud-upload" slot="icon-only"></ion-icon>
+      </ion-button>
+      <ion-button (click)="onDownload()">
+        <ion-icon name="cloud-download" slot="icon-only"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-list>
+    <ion-item *ngFor="let recipe of recipes" [routerLink]="['./', recipe.id]" detail>
+      <ion-avatar slot="start">
+        <ion-img [src]="recipe.imageUrl"></ion-img>
+      </ion-avatar>
+      <ion-label>
+        {{recipe.title}}
+      </ion-label>
+    </ion-item>
+  </ion-list>
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+    <ion-fab-button [routerLink]="['./', 'add-recipe']" class="add-fab-button"><ion-icon name="add"></ion-icon></ion-fab-button>
+  </ion-fab>
+</ion-content>

@@ -1,0 +1,42 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/recipes/recipeId"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Edit Recipe - {{loadedRecipe.title}}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-list lines="none">
+    <form [formGroup]="ingredientForm" (ngSubmit)="onConfirmEdit()">
+      <ion-item>
+        <ion-label color="medium" position="floating">Title</ion-label>
+        <ion-input required type="text" formControlName="recipeName" [value]=loadedRecipe.title></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label color="medium">Ingredients</ion-label>
+        <ion-icon name="add" color="primary" (click)="addControl()"></ion-icon>
+      </ion-item>
+      <ng-container *ngFor="let control of ingredientForm.controls | keyvalue;">
+        <ion-item *ngIf="control.key.startsWith('ingredient')">
+          <ion-input required type="text" [formControlName]="control.key" placeHolder="Ingredient"></ion-input>
+          <ion-icon (click)="removeControl(control)" name="close-circle"></ion-icon>
+        </ion-item>
+      </ng-container>
+      <ion-item>
+        <ion-label color="medium" position="floating">Description</ion-label>
+        <ion-textarea required formControlName="recipeDescription" rows="6" [value]=loadedRecipe.description></ion-textarea>
+      </ion-item>
+      <ion-item>
+        <ion-label color="medium" position="floating">Image URL</ion-label>
+        <ion-input required type="text" formControlName="recipeImageUrl" [value]="loadedRecipe.imageUrl"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label color="medium" position="floating">Video URL</ion-label>
+        <ion-input required formControlName="recipeVideoUrl" [value]="loadedRecipe.videoUrl"></ion-input>
+      </ion-item>
+      <ion-button type="submit" [disabled]="!ingredientForm.valid">Submit Recipe</ion-button>
+    </form>
+  </ion-list>
+</ion-content>
