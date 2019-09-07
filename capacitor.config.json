@@ -1,6 +1,6 @@
 {
-  "appId": "com.udemycourse.ionicangular",
-  "appName": "ionic-angular-course",
+  "appId": "com.recipesbook",
+  "appName": "recipes-book",
   "bundledWebRuntime": false,
   "npmClient": "npm",
   "webDir": "www"
