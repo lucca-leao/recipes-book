@@ -23,3 +23,6 @@ ionic capacitor add android
 ionic capacitor copy android
 
 ionic capacitor run android
+
+For a more detailed explanation and for iOS installation, see:
+https://ionicframework.com/docs/building/running
