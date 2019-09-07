@@ -10,7 +10,7 @@ Installation on Android device:
 https://nodejs.org/en/
 https://developer.android.com/studio
 
-2. Clone this repository
+2. Clone this repository and delete the 'www' and 'android' folders
 
 3. Run:
 
